@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_221946) do
   create_table "orders", force: :cascade do |t|
     t.bigint "merchant_id", null: false
     t.bigint "shopper_id", null: false
-    t.decimal "amounnt", precision: 10, scale: 2, null: false
+    t.decimal "amount", precision: 10, scale: 2, null: false
     t.datetime "completed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
