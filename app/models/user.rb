@@ -9,4 +9,23 @@ class User < ApplicationRecord
 
   scope :merchants, -> { where(user_type: "merchant") }
   scope :shoppers, -> { where(user_type: "shopper") }
+
+  # Get all the orders that are completed
+  def self.completed_orders
+    if self.user_type == "merchant"
+      self.sales_orders.completed
+    else
+      self.purchase_orders.completed
+    end
+  end
+
+  # Get all the orders that are incompleted
+  def self.incompleted_orders
+    if self.user_type == "merchant"
+      self.sales_orders.incompleted
+    else
+      self.purchase_orders.incompleted
+    end
+  end
+
 end
