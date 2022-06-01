@@ -28,4 +28,12 @@ class User < ApplicationRecord
     end
   end
 
+  def orders
+    if self.user_type == "merchant"
+      self.sales_orders
+    else
+      self.purchase_orders
+    end
+  end
+
 end
