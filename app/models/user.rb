@@ -11,7 +11,7 @@ class User < ApplicationRecord
   scope :shoppers, -> { where(user_type: "shopper") }
 
   # Get all the orders that are completed
-  def self.completed_orders
+  def completed_orders
     if self.user_type == "merchant"
       self.sales_orders.completed
     else
@@ -20,7 +20,7 @@ class User < ApplicationRecord
   end
 
   # Get all the orders that are incompleted
-  def self.incompleted_orders
+  def incompleted_orders
     if self.user_type == "merchant"
       self.sales_orders.incompleted
     else
