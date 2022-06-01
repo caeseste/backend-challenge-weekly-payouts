@@ -34,7 +34,8 @@ class Order < ApplicationRecord
     (total_amount/100).to_f
   end
 
-  # Calculate the total amount of the orders
+  # Calculate the total disbursed amount of the orders
+  # @param [Array] orders
   def self.disbursed_amount orders
     disbursed = orders.inject(0) do |sum, order|
       disbursed_amount_i = (order.disbursed_amount*100).to_i
