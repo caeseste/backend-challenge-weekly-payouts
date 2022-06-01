@@ -12,22 +12,15 @@ class User < ApplicationRecord
 
   # Get all the orders that are completed
   def completed_orders
-    if self.user_type == "merchant"
-      self.sales_orders.completed
-    else
-      self.purchase_orders.completed
-    end
+    self.orders.completed
   end
 
   # Get all the orders that are incompleted
   def incompleted_orders
-    if self.user_type == "merchant"
-      self.sales_orders.incompleted
-    else
-      self.purchase_orders.incompleted
-    end
+    self.orders.incompleted
   end
 
+  # Get all orders depending on the user type
   def orders
     if self.user_type == "merchant"
       self.sales_orders
