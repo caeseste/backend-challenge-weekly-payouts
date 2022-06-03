@@ -4,12 +4,9 @@ FactoryBot.define do
     merchant
     shopper
 
-    # transient do
-    # end
     amount { 100 }
 
-    created_at { Faker::Time.between(from: DateTime.now - 1, to: DateTime.now) }
-    updated_at { Faker::Time.between(from: DateTime.now - 1, to: DateTime.now) }
+    created_at { Faker::Time.between(from: DateTime.now - 14, to: DateTime.now - 7) }
 
     trait :completed do
       completed_at { Faker::Time.between(from: DateTime.now - 1, to: DateTime.now) }
