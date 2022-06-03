@@ -31,7 +31,11 @@ module Api
         date = Date.parse(params[:date])
         orders = User.find(order_params).completed_orders.filter_by_week(date)
         Order.disbursed_amount(orders)
-        render json: Order.disbursed_amount(orders)
+        render json: {
+          amount: Order.disbursed_amount(orders),
+          begin_date: date.beginning_of_week,
+          end_date: date.end_of_week
+        }
       end
 
       def order_params
