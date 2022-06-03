@@ -90,7 +90,6 @@ GET	/api/v1/users/:user_id/orders
 GET	/api/v1/users/:user_id/disbursed?date=[YYYY-MM-DD]
 GET	/api/v1/users/:user_id/completed
 GET	/api/v1/users/:user_id/incompleted
-GET api/v1/orders
 ```
 
 ### Setup development environment
@@ -105,7 +104,11 @@ $ bin/rails db:seed
 $ bin/rails s
 ```
 
+Run tests in the terminal inside the project folder:
+```
+$ bundle exec rspec
+```
+
 ### Pending tasks
 - Create authentication for the api.
-- Json hash with details for the response of the call 'disbursed'
 - Error handling for the case when the user_id is not valid.
